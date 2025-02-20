@@ -1,0 +1,24 @@
+# Librería principal para Mindwave
+mindwave
+
+# Procesamiento de datos y análisis
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+scikit-learn>=0.24.2
+
+# Visualización
+matplotlib>=3.4.0
+
+# Interfaz web
+streamlit>=1.0.0
+
+# Comunicación serial
+pyserial>=3.5
+
+# Utilidades de sistema
+python-dateutil>=2.8.2
+
+# Dependencias opcionales pero recomendadas
+plotly>=5.0.0  # Para gráficos interactivos
+altair>=4.0.0  # Para visualizaciones alternativas

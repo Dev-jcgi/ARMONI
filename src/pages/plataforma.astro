@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Plataforma — ARMONI" description="Demo interactiva de ARMONI: señal EEG simulada, potencia por banda e índice de atención según dispositivo y tipo de tarea." path="/plataforma/" image="/img/diadema.webp">
+  <section class="page-head paper" style="padding-bottom:40px">
+    <div class="wrap">
+      <span class="eyebrow">Plataforma · demo</span>
+      <h1>Lo que ve quien investiga</h1>
+      <p class="lead">Elige un dispositivo y un tipo de tarea. La señal es <strong>simulada</strong>: sirve para conocer la interfaz, no para sacar conclusiones.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:40px">
+    <div class="wrap">
+      <div class="controls">
+        <span class="mono">Dispositivo</span>
+        <div class="seg" id="dev" role="group" aria-label="Dispositivo">
+          <button aria-pressed="true" data-ch="1">MindWave 2</button><button aria-pressed="false" data-ch="4">Muse</button><button aria-pressed="false" data-ch="6">EPOC X</button>
+        </div>
+        <span class="mono">Tarea</span>
+        <div class="seg" id="task" role="group" aria-label="Tarea">
+          <button aria-pressed="false" data-t="reposo">Reposo</button><button aria-pressed="true" data-t="interactiva">Tarea interactiva</button><button aria-pressed="false" data-t="clase">Clase expositiva</button>
+        </div>
+        <button class="btn-plain" id="toggle" type="button">Pausar</button>
+        <span class="sim">Datos simulados</span>
+      </div>
+      <div class="demo-grid">
+        <div class="panel">
+          <header><span><span class="dot"></span><span id="devname">MindWave Mobile 2</span></span><span id="devmeta">1 canal · 512 Hz</span></header>
+          <canvas id="eeg" aria-label="Canales EEG simulados"></canvas>
+          <footer><span>Filtro 1–40 Hz</span><span>Ventana de Welch 2 s · solape 50 %</span><span>Escala ±50 µV</span></footer>
+        </div>
+        <div style="display:grid;gap:16px;align-content:start">
+          <div class="panel"><header><span>Índice de compromiso (CEI)</span><span>β / (α + θ)</span></header><div class="gauge"><b id="cei">0.00</b><br /><span class="lvl" id="lvl">—</span></div></div>
+          <div class="panel"><header><span>Potencia relativa por banda</span><span>%</span></header>
+            <div class="bands" id="bands">
+              <div><span>δ 1–4</span><span class="bar"><i></i></span><span>0</span></div>
+              <div><span>θ 4–8</span><span class="bar"><i></i></span><span>0</span></div>
+              <div><span>α 8–13</span><span class="bar"><i></i></span><span>0</span></div>
+              <div><span>β 13–30</span><span class="bar"><i></i></span><span>0</span></div>
+              <div><span>γ 30–40</span><span class="bar"><i></i></span><span>0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper">
+    <div class="wrap">
+      <span class="eyebrow">Módulos</span>
+      <h2 style="margin-top:16px;max-width:16ch">Qué incluye la plataforma</h2>
+      <div class="road">
+        <div><span class="when">01 · ADQUISICIÓN</span><h3>Conectores por dispositivo</h3><p>Un adaptador por diadema que entrega canales, frecuencia y marcas de evento en un solo formato.</p></div>
+        <div><span class="when">02 · SESIÓN</span><h3>Protocolo y marcadores</h3><p>Línea base, tarea y descanso con marcas sincronizadas desde la lección o el docente.</p></div>
+        <div><span class="when">03 · ANÁLISIS</span><h3>Índices y modelos</h3><p>Potencias por banda, PRI, CEI y clasificación de atención con validación cruzada.</p></div>
+        <div><span class="when">04 · INFORME</span><h3>Resultados legibles</h3><p>Resumen por participante y por grupo, exportación a CSV y figuras listas para artículo.</p></div>
+      </div>
+      <p class="note" style="margin-top:34px">Estado actual: adquisición y visualización con MindWave Mobile 2 en Python. Muse y Emotiv EPOC X se integran mediante una capa común (BrainFlow y LSL). Esta interfaz es el diseño objetivo.</p>
+    </div>
+  </section>
+</Base>
+<script>
+  import { drawTraces, type Trace } from '../scripts/signal';
+  const canvas = document.getElementById('eeg') as HTMLCanvasElement;
+  const perfiles: Record<string, number[]> = { reposo: [14, 20, 38, 20, 8], interactiva: [9, 14, 17, 48, 12], clase: [13, 24, 27, 28, 8] };
+  const nombres: Record<string, [string, string]> = { '1': ['MindWave Mobile 2', '1 canal · 512 Hz'], '4': ['Muse 2', '4 canales · 256 Hz'], '6': ['Emotiv EPOC X', '6 de 14 canales · 256 Hz'] };
+  let ch = 1, tarea = 'interactiva', playing = true;
+  const colores = ['#3DF5A6', '#5B8CFF', '#4FD1FF', '#9BB6FF', '#3DF5A6', '#5B8CFF'];
+  const mk = (): Trace[] => Array.from({ length: ch }, (_, i) => ({ color: colores[i], y: (i + 1) / (ch + 1), amp: tarea === 'reposo' ? 14 / Math.sqrt(ch) : 9 / Math.sqrt(ch), freq: tarea === 'reposo' ? .06 : tarea === 'interactiva' ? .16 : .1, noise: (tarea === 'interactiva' ? 6 : 4) / Math.sqrt(ch) }));
+  const plot = drawTraces(canvas, mk(), { speed: 4 });
+  const bars = [...document.querySelectorAll<HTMLElement>('#bands > div')];
+  function metrics() {
+    const base = perfiles[tarea].map((v) => Math.max(1, v + (Math.random() - .5) * 5));
+    const sum = base.reduce((a, b) => a + b, 0); const rel = base.map((v) => (v / sum) * 100);
+    bars.forEach((row, i) => { (row.querySelector('i') as HTMLElement).style.width = rel[i].toFixed(0) + '%'; row.lastElementChild!.textContent = rel[i].toFixed(0); });
+    const cei = rel[3] / (rel[2] + rel[1]);
+    document.getElementById('cei')!.textContent = cei.toFixed(2);
+    document.getElementById('lvl')!.textContent = cei > 1 ? 'Atención alta' : cei > .6 ? 'Atención media' : 'Atención baja';
+  }
+  metrics(); setInterval(() => { if (playing) metrics(); }, 1500);
+  function press(group: string, btn: HTMLElement) { document.querySelectorAll(`#${group} button`).forEach((b) => b.setAttribute('aria-pressed', String(b === btn))); }
+  document.getElementById('dev')!.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (!b) return; press('dev', b); ch = Number(b.dataset.ch); const [n, m] = nombres[String(ch)]; document.getElementById('devname')!.textContent = n; document.getElementById('devmeta')!.textContent = m; plot.set(mk()); });
+  document.getElementById('task')!.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (!b) return; press('task', b); tarea = b.dataset.t!; plot.set(mk()); metrics(); });
+  document.getElementById('toggle')!.addEventListener('click', (e) => { playing = !playing; playing ? plot.play() : plot.pause(); (e.target as HTMLElement).textContent = playing ? 'Pausar' : 'Reanudar'; });
+</script>

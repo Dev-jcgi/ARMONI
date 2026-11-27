@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://armoni.bio/sitemap-index.xml

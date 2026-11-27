@@ -1,0 +1,223 @@
+---
+import Base from '../layouts/Base.astro';
+const marquee = 'ATENCIÓN · COMPROMISO · CONTEXTO · AGENTES · DOCENTE AL MANDO · EEG PORTÁTIL · APRENDIZAJE PERSONALIZADO · ';
+---
+<Base title="ARMONI — De la señal cerebral al aprendizaje personalizado" description="ARMONI convierte EEG portátil en indicadores de atención interpretables que alimentan un sistema de tutoría inteligente con agentes, para personalizar el aprendizaje con el docente al mando." path="/">
+
+  <section class="hero hero-logo" aria-label="Presentación">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <span class="readout" id="readout" aria-live="off"></span>
+      <span class="eyebrow light" style="display:flex;margin-top:22px">Neurotecnología para el aprendizaje</span>
+      <h1>De la señal cerebral al <span class="rot">aprendizaje personalizado</span></h1>
+      <p class="lead">ARMONI traduce la actividad cerebral medida con EEG portátil en indicadores de atención que un tutor inteligente usa para decidir qué necesita cada estudiante, en el momento.</p>
+      <div class="ctas">
+        <a class="pill light" href="#simulador">Probar el simulador <span class="arr">→</span></a>
+        <a class="pill ghost" href="#arquitectura">Explorar la arquitectura</a>
+      </div>
+    </div>
+    <span class="scrollcue">DESPLÁZATE PARA EXPLORAR</span>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div>{marquee.repeat(4)}</div></div>
+
+  <section>
+    <div class="wrap split">
+      <h2 class="reveal">Un tutor que sabe cuándo estás prestando atención</h2>
+      <div class="reveal">
+        <p>Los sistemas de aprendizaje personalizado deciden con lo que el estudiante responde. No saben si una respuesta incorrecta viene de un concepto que no quedó claro o de una atención que ya se había ido.</p>
+        <p>ARMONI añade esa información. Una diadema EEG de bajo costo registra la actividad cerebral durante la lección; la plataforma la convierte en indicadores comprensibles y un conjunto de agentes de IA decide el siguiente paso: una pista, un ejemplo resuelto, otro ritmo o una pausa.</p>
+        <a class="pill" href="/tecnologia/" style="margin-top:10px">Cómo funciona <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper">
+    <div class="wrap center">
+      <span class="eyebrow">El problema</span>
+      <h2 class="statement reveal">Aprender no se ve. Y lo que no se ve se corrige tarde.</h2>
+      <p class="lead reveal" style="margin:26px auto 0">En un salón de cuarenta estudiantes, la atención perdida aparece semanas después, en las calificaciones. Las herramientas digitales tampoco la ven: adaptan el contenido a los clics, no a la persona.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2 style="margin-top:16px;max-width:16ch" class="reveal">Cuatro pasos, de la diadema a la decisión</h2>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="n">01</span>
+          <svg class="ico ico-head" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 34c0-13 10-22 22-22s22 9 22 22"/><path d="M10 34v6M54 34v6"/><circle class="s1" cx="18" cy="22" r="2.6"/><circle class="s2" cx="32" cy="16" r="2.6"/><circle class="s3" cx="46" cy="22" r="2.6"/><rect x="7" y="38" width="6" height="8" rx="2"/><rect x="51" y="38" width="6" height="8" rx="2"/></svg>
+          <h3>Capturar</h3>
+          <p>EEG portátil de uno a catorce canales, sincronizado con cada evento de la lección.</p>
+        </div>
+        <div class="step reveal">
+          <span class="n">02</span>
+          <svg class="ico ico-wave" viewBox="0 0 64 64" aria-hidden="true"><path class="w" d="M4 32h10l4-12 6 26 6-20 4 10 4-4h22"/><path d="M4 52h56" stroke-dasharray="2 4"/></svg>
+          <h3>Interpretar</h3>
+          <p>Filtrado, rechazo de artefactos y bandas de frecuencia que se convierten en índices de atención con una medida de calidad.</p>
+        </div>
+        <div class="step reveal">
+          <span class="n">03</span>
+          <svg class="ico ico-net" viewBox="0 0 64 64" aria-hidden="true"><path d="M28 19L17 41M36 19l11 22M20 46h24"/><circle class="n1" cx="32" cy="14" r="6"/><circle class="n2" cx="14" cy="46" r="6"/><circle class="n3" cx="50" cy="46" r="6"/></svg>
+          <h3>Decidir</h3>
+          <p>Agentes de IA combinan atención, errores y progreso para elegir la mejor acción pedagógica.</p>
+        </div>
+        <div class="step reveal">
+          <span class="n">04</span>
+          <svg class="ico ico-teach" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="18" r="8"/><path d="M14 54c2-11 9-17 18-17s16 6 18 17"/><path class="chk" d="M42 10l4 4 9-9"/></svg>
+          <h3>Acompañar</h3>
+          <p>El docente ve los mismos indicadores, aprueba o corrige cada decisión y entiende por qué se tomó.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark sim-sec" id="simulador">
+    <div class="wrap">
+      <div class="split">
+        <div><span class="eyebrow">Simulador</span><h2 style="margin-top:16px">No todos los errores necesitan la misma respuesta</h2></div>
+        <p class="lead" style="margin-top:8px">Elige cómo está el estudiante y mira qué propone el gestor de retroalimentación. Es una simulación de las reglas de decisión que ARMONI usará.</p>
+      </div>
+      <div class="sim-grid" id="sim">
+        <div class="sim-controls">
+          <div><span class="mono">Atención medida</span><div class="seg dark-seg"><button data-set="att:alta" aria-pressed="true">Alta</button><button data-set="att:media" aria-pressed="false">Media</button><button data-set="att:baja" aria-pressed="false">Baja</button></div></div>
+          <div><span class="mono">Respuesta</span><div class="seg dark-seg"><button data-set="ans:correcta" aria-pressed="false">Correcta</button><button data-set="ans:incorrecta" aria-pressed="true">Incorrecta</button></div></div>
+          <div><span class="mono">Historial</span><div class="seg dark-seg"><button data-set="streak:primera" aria-pressed="true">Primer intento</button><button data-set="streak:repetida" aria-pressed="false">Error repetido</button></div></div>
+          <div class="chain" aria-label="Cadena de agentes">
+            <span data-agent>Agente de análisis</span><i>→</i><span data-agent>Planificador</span><i>→</i><span data-agent>Mensajes</span><i>→</i><span data-agent>Reglas y docente</span>
+          </div>
+        </div>
+        <div class="sim-out">
+          <span class="mono">Decisión</span>
+          <p class="sim-action" data-out="action">—</p>
+          <p class="sim-why" data-out="why"></p>
+          <div class="bubble"><span class="mono">Mensaje al estudiante</span><p data-out="msg"></p></div>
+          <span class="badge" data-out="teacher"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split" style="align-items:center">
+      <div class="media reveal" style="aspect-ratio:4/3"><img src="/img/diadema.webp" width="1400" height="1050" alt="Persona con una diadema EEG usando una tableta" loading="lazy" /></div>
+      <div class="reveal">
+        <span class="eyebrow">Tecnología</span>
+        <h2 style="margin:16px 0 22px">Funciona con la diadema que ya existe</h2>
+        <p>ARMONI no fabrica hardware. Se conecta a diademas EEG comerciales y entrega los mismos indicadores sin importar el modelo, para que un laboratorio o una escuela puedan empezar con lo que tienen.</p>
+        <div class="specs" style="margin-top:26px">
+          <div class="spec"><h3>NeuroSky MindWave 2</h3><span class="hide-sm">1 canal · 512 Hz</span><span class="hide-sm">Bluetooth</span><span class="status ok">Integrado</span></div>
+          <div class="spec"><h3>Muse 2 / Muse S</h3><span class="hide-sm">4 canales · 256 Hz</span><span class="hide-sm">Bluetooth LE</span><span class="status wip">En integración</span></div>
+          <div class="spec"><h3>Emotiv EPOC X</h3><span class="hide-sm">14 canales · 256 Hz</span><span class="hide-sm">Bluetooth · USB</span><span class="status wip">En integración</span></div>
+          <div class="spec"><h3>fNIRS de investigación</h3><span class="hide-sm">HbO · HbR</span><span class="hide-sm">LSL</span><span class="status">Planeado</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark arch-sec" id="arquitectura">
+    <div class="wrap">
+      <div class="split">
+        <div><span class="eyebrow">Arquitectura interactiva</span><h2 style="margin-top:16px">Inteligencia aumentada, no automática</h2></div>
+        <div>
+          <p class="lead" style="margin-top:8px">Toca cualquier bloque para ver qué hace, qué recibe, qué entrega y en qué estado está. O deja que el recorrido te lleve por el flujo completo.</p>
+          <div class="arch-legend"><span><i class="lg-base"></i>Tutor inteligente base</span><span><i class="lg-new"></i>Nuevo en ARMONI</span><button class="pill light" id="arch-tour" type="button">Recorrer el flujo ▶</button></div>
+        </div>
+      </div>
+      <div class="arch-wrap">
+        <div id="arch" class="arch-paper" role="img" aria-label="Diagrama interactivo de la arquitectura de ARMONI"></div>
+        <p class="arch-hint">← Desliza para ver todo el diagrama →</p>
+        <aside id="arch-panel" class="arch-panel" aria-live="polite" data-empty="true"><p class="mono">Selecciona un bloque</p></aside>
+      </div>
+      <p class="caption" style="color:var(--mute-dark)">Diagrama construido con JointJS, librería abierta para diagramas de software.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="split">
+        <div><span class="eyebrow">Evidencia</span><h2 style="margin-top:16px" class="reveal">Construido sobre investigación en aula real</h2></div>
+        <p class="lead reveal" style="margin-top:8px">El primer piloto registró EEG de un canal en estudiantes universitarios durante una tarea interactiva de física de quince minutos, frente a un grupo con clase expositiva.</p>
+      </div>
+      <div class="impact">
+        <div class="stats">
+          <div class="stat reveal"><b data-count="84" data-suffix=" %">0 %</b><span>del tiempo de la tarea en atención alta</span></div>
+          <div class="stat reveal"><b data-count="0.96" data-decimals="2">0.00</b><span>exactitud del clasificador SVM sobre los índices propuestos</span></div>
+          <div class="stat reveal"><b data-count="24" data-prefix="n = ">n = 0</b><span>participantes, grupo experimental y control</span></div>
+        </div>
+        <figure class="reveal"><img src="/img/laboratorio.webp" width="1200" height="800" alt="Dos investigadoras trabajando en computadoras de laboratorio" loading="lazy" /><figcaption>Procesamiento abierto y reproducible</figcaption></figure>
+        <figure class="reveal"><img src="/img/aula.webp" width="1200" height="675" alt="Estudiantes atentos en un auditorio universitario" loading="lazy" /><figcaption>Mediciones en el contexto real del aula</figcaption></figure>
+      </div>
+      <p class="note">Resultados preliminares. La exactitud del clasificador refleja la consistencia del esquema de etiquetado, no una validación independiente de la atención. <a href="/investigacion/" style="text-decoration:underline">Ver método y límites</a>.</p>
+    </div>
+  </section>
+
+  <section class="paper">
+    <div class="wrap">
+      <span class="eyebrow">Para quién</span>
+      <h2 style="margin-top:16px;max-width:15ch" class="reveal">Un mismo dato, tres formas de usarlo</h2>
+      <div class="cards">
+        <a class="card reveal" href="/investigacion/"><div class="media"><img src="/img/investigadora.webp" width="1000" height="1250" alt="Investigadora trabajando frente a una computadora" loading="lazy" /></div><h3>Investigación</h3><p>Registro sincronizado, indicadores validados y datos exportables para estudios de atención y aprendizaje.</p><span class="more">Edición para laboratorios →</span></a>
+        <a class="card reveal" href="/plataforma/"><div class="media"><img src="/img/docente.webp" width="1200" height="675" alt="Profesor dando clase en un aula universitaria" loading="lazy" /></div><h3>Docencia</h3><p>Ver qué partes de la clase pierden al grupo y recibir sugerencias que el docente aprueba.</p><span class="more">Panel docente →</span></a>
+        <a class="card reveal" href="/tecnologia/#api"><div class="media"><img src="/img/diadema-ancha.webp" width="1400" height="933" alt="Persona con diadema EEG y tableta" loading="lazy" /></div><h3>Tecnología educativa</h3><p>Una API que agrega una señal de atención a tutores y plataformas de aprendizaje existentes.</p><span class="more">Integración por API →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <span class="eyebrow">Principios</span>
+      <h2 style="margin-top:16px;max-width:16ch" class="reveal">Medir para ayudar, nunca para vigilar</h2>
+      <div class="principles">
+        <div class="reveal"><span class="n">01</span><h3>No diagnostica</h3><p>Los indicadores describen un estado durante una tarea. No miden inteligencia ni sustituyen a un especialista.</p></div>
+        <div class="reveal"><span class="n">02</span><h3>Consentimiento</h3><p>Participación voluntaria, informada y revocable. Con menores, siempre con madres, padres o tutores.</p></div>
+        <div class="reveal"><span class="n">03</span><h3>Datos cerca</h3><p>Procesamiento en el dispositivo cuando es posible. La señal cruda nunca se usa para calificar.</p></div>
+        <div class="reveal"><span class="n">04</span><h3>Docente al mando</h3><p>Los agentes proponen; el docente decide. Cada acción se explica con los datos que la originaron.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hoja-de-ruta">
+    <div class="wrap">
+      <div class="split">
+        <div><span class="eyebrow">Hoja de ruta</span><h2 style="margin-top:16px" class="reveal">Del prototipo de investigación al producto</h2></div>
+        <p class="lead reveal" style="margin-top:8px">El flujo de adquisición, procesamiento e índices ya funciona. Los próximos doce meses convierten ese prototipo en una plataforma validada.</p>
+      </div>
+      <div class="road">
+        <div class="reveal"><span class="when">MESES 1–3</span><h3>Validar el mercado</h3><p>Entrevistas con laboratorios, docentes y empresas de tecnología educativa.</p></div>
+        <div class="reveal"><span class="when">MESES 3–6</span><h3>Edición de investigación</h3><p>Tres diademas, marcas de evento, medida de calidad y exportación de datos.</p></div>
+        <div class="reveal"><span class="when">MESES 6–9</span><h3>Tutor con agentes</h3><p>Capa de agentes, panel docente y primer dominio: física introductoria.</p></div>
+        <div class="reveal"><span class="when">MESES 9–12</span><h3>Estudio prerregistrado</h3><p>Al menos 60 estudiantes con EEG multicanal y primeras licencias.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark closing" id="colaborar">
+    <div class="wrap">
+      <span class="eyebrow light">Colaborar</span>
+      <h2>Construyamos el aula que entiende la atención</h2>
+      <p class="lead" style="margin:0 auto 30px">Buscamos laboratorios, docentes y equipos de tecnología educativa para los primeros pilotos.</p>
+      <a class="pill light" href="mailto:hola@armoni.bio">hola@armoni.bio <span class="arr">→</span></a>
+    </div>
+  </section>
+</Base>
+<script>
+  import { armoniHero } from '../scripts/brain';
+  import { countUp, liveReadout, decisionSim } from '../scripts/fx';
+  const hero = document.getElementById('hero-canvas') as HTMLCanvasElement | null;
+  if (hero) armoniHero(hero);
+  countUp();
+  liveReadout(document.getElementById('readout'));
+  decisionSim(document.getElementById('sim'));
+  // JointJS solo se descarga cuando el diagrama está por entrar en pantalla
+  const archHost = document.getElementById('arch');
+  if (archHost) {
+    const io = new IntersectionObserver(async (e) => {
+      if (!e[0].isIntersecting) return; io.disconnect();
+      const { architecture } = await import('../scripts/arch');
+      architecture(archHost, document.getElementById('arch-panel'), document.getElementById('arch-tour') as HTMLButtonElement | null);
+    }, { rootMargin: '600px 0px' });
+    io.observe(archHost);
+  }
+</script>

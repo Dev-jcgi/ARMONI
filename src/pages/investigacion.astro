@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Investigación — ARMONI" description="Método, estudio piloto, límites y publicaciones detrás de ARMONI: atención sostenida medida con EEG portátil durante tareas de aprendizaje." path="/investigacion/" image="/img/laboratorio.webp">
+  <section class="page-head paper">
+    <div class="wrap">
+      <span class="eyebrow">Investigación</span>
+      <h1>El método, a la vista</h1>
+      <p class="lead">ARMONI nace de una línea de investigación en neuroeducación: medir la atención sostenida de forma objetiva, dentro del aula y con equipo accesible. Aquí está qué se midió, cómo y qué no se puede concluir todavía.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="qa">
+        <div class="reveal"><h3>Pregunta de investigación</h3><div><p>¿Puede un EEG de un solo canal, colocado en la frente, ofrecer un indicador útil de atención sostenida durante una tarea de aprendizaje de física, y se relaciona ese indicador con lo que el estudiante aprende?</p></div></div>
+        <div class="reveal"><h3>Diseño del estudio piloto</h3><div><p>Veinticuatro estudiantes universitarios de primer semestre. Doce realizaron una tarea interactiva de física durante quince minutos con EEG; doce recibieron la clase expositiva del mismo tema. Ambos grupos respondieron una prueba antes y después.</p></div></div>
+        <div class="reveal"><h3>Adquisición</h3><div><p>Señal en Fp1 a 512 Hz con un módulo TGAM1, transmitida por Bluetooth a una capa de adquisición que marcaba en la señal cada evento de la tarea.</p></div></div>
+        <div class="reveal"><h3>Procesamiento</h3><div><p>Filtro Butterworth pasa‑banda de cuarto orden entre 0.5 y 50 Hz y filtro de muesca de 50/60 Hz. Como el análisis de componentes independientes no aplica a un canal, los parpadeos se eliminaron con un detector por umbral en el dominio del tiempo. Las potencias relativas por banda se estimaron con el método de Welch y se calcularon nueve indicadores espectrales.</p><p class="formula">P_rel(banda) = P(banda) / Σ P(δ, θ, α, β, γ)<br />CEI = β / (α + θ)</p></div></div>
+        <div class="reveal"><h3>Una escala interpretable</h3><div><p>Se propuso una escala de umbrales que asigna a cada indicador uno de tres niveles, como alternativa abierta al índice propietario del dispositivo. Su consistencia interna se comparó con tres clasificadores supervisados.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper">
+    <div class="wrap">
+      <span class="eyebrow">Resultados</span>
+      <h2 style="margin-top:16px;max-width:16ch">Lo que mostró el piloto</h2>
+      <div class="impact" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat"><b>84 %</b><span>del tiempo de la tarea en atención alta</span></div>
+        <div class="stat"><b>p = 0.021</b><span>ventaja del grupo experimental en el concepto de tiempo (d = 1.02)</span></div>
+        <div class="stat"><b>r = 0.469</b><span>entre atención y aprendizaje, sin significancia (p = 0.124)</span></div>
+        <div class="stat"><b>0.96</b><span>exactitud de SVM (F1 = 0.95), superior a LDA</span></div>
+      </div>
+      <p class="note">Ambos grupos mejoraron entre la prueba inicial y la final. La diferencia global entre grupos no fue significativa (p = 0.189).</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Límites</span>
+      <h2 style="margin-top:16px;max-width:18ch">Lo que todavía no sabemos</h2>
+      <div class="road" style="grid-template-columns:repeat(4,1fr)">
+        <div><span class="when">MUESTRA</span><h3>Pequeña</h3><p>Veinticuatro participantes. Los resultados son exploratorios.</p></div>
+        <div><span class="when">SEÑAL</span><h3>Un solo canal</h3><p>El EEG frontal es sensible a parpadeos y movimiento.</p></div>
+        <div><span class="when">CLASIFICADOR</span><h3>Consistencia, no validación</h3><p>La exactitud refleja el etiquetado propuesto, no una medida independiente de atención.</p></div>
+        <div><span class="when">RESULTADO NULO</span><h3>Niveles de la tarea</h3><p>Un análisis posterior no separó de forma fiable las fases de la tarea. Por eso ARMONI añade calidad de señal y más canales.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper">
+    <div class="wrap">
+      <span class="eyebrow">Publicaciones</span>
+      <h2 style="margin:16px 0 34px">Para citar</h2>
+      <ol class="pubs">
+        <li><span class="y">2026</span><div><strong>Sustained Attention as a Preliminary Neurophysiological Indicator of Physics Learning through Serious Games</strong><span>J. C. González, M. Metlich · Manuscrito en revisión</span></div></li>
+        <li><span class="y">2026</span><div><strong>A Low-Cost Single-Channel EEG Platform and an Interpretable Index Scale for Sustained Attention Monitoring in the Classroom</strong><span>J. C. González, M. Metlich · Manuscrito enviado</span></div></li>
+        <li><span class="y">2026</span><div><strong>¿Discrimina el EEG de un solo canal entre niveles de un serious game? Segmentación sincronizada por eventos, calidad de señal y resultados nulos</strong><span>J. González, M. Metlich · En preparación</span></div></li>
+        <li><span class="y">2012</span><div><strong>EMG Pattern Recognition System Based on Neural Networks</strong><span>J. C. González‑Ibarra, C. Soubervielle‑Montalvo · MICAI 2012, IEEE · <a href="https://doi.org/10.1109/MICAI.2012.23" style="text-decoration:underline">doi:10.1109/MICAI.2012.23</a></span></div></li>
+      </ol>
+      <p class="note">Ética: consentimiento informado, datos anonimizados y posibilidad de retirarse en cualquier momento. Con menores, consentimiento de madres, padres o tutores.</p>
+    </div>
+  </section>
+</Base>

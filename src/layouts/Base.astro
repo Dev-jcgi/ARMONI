@@ -1,8 +1,9 @@
 ---
+import { u } from '../lib/url';
 import '../styles/global.css';
 interface Props { title: string; description: string; path: string; image?: string }
 const { title, description, path, image = '/img/diadema.webp' } = Astro.props;
-const canonical = new URL(path, Astro.site).href;
+const canonical = new URL(u(path), Astro.site).href;
 const links = [
   { href: '/tecnologia/', label: 'Tecnología' },
   { href: '/investigacion/', label: 'Investigación' },
@@ -20,24 +21,24 @@ const jsonld = { '@context': 'https://schema.org', '@type': 'Organization', name
   <meta name="description" content={description} />
   <meta name="theme-color" content="#06070A" />
   <link rel="canonical" href={canonical} />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="ARMONI" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
-  <meta property="og:image" content={new URL(image, Astro.site).href} />
+  <meta property="og:image" content={new URL(u(image), Astro.site).href} />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
 </head>
 <body>
   <canvas id="bg-lines" class="bg-lines" aria-hidden="true"></canvas>
   <header class="nav">
-    <a class="brand" href="/" aria-label="ARMONI, inicio"><img src="/logo.svg" width="44" height="29" alt="" />ARMONI</a>
+    <a class="brand" href={u('/')} aria-label="ARMONI, inicio"><img src={u('/logo.svg')} width="44" height="29" alt="" />ARMONI</a>
     <nav class="links" aria-label="Principal">
-      {links.map((l) => <a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>)}
+      {links.map((l) => <a href={u(l.href)} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>)}
     </nav>
-    <a class="pill" href="/#colaborar">Colaborar <span class="arr">→</span></a>
+    <a class="pill" href={u('/#colaborar')}>Colaborar <span class="arr">→</span></a>
   </header>
 
   <main><slot /></main>
@@ -46,7 +47,7 @@ const jsonld = { '@context': 'https://schema.org', '@type': 'Organization', name
     <div class="wrap">
       <div class="top">
         <div>
-          <a class="brand" href="/"><img src="/logo.svg" width="52" height="34" alt="" />ARMONI</a>
+          <a class="brand" href={u('/')}><img src={u('/logo.svg')} width="52" height="34" alt="" />ARMONI</a>
           <p style="margin-top:18px;max-width:42ch">Neurotecnología para el aprendizaje. EEG portátil, indicadores interpretables y tutoría inteligente con el docente al mando.</p>
           <form class="news" action="mailto:hola@armoni.bio" method="post" enctype="text/plain">
             <input type="email" name="correo" placeholder="Tu correo para recibir avances" aria-label="Correo electrónico" required />
@@ -56,10 +57,10 @@ const jsonld = { '@context': 'https://schema.org', '@type': 'Organization', name
         <div>
           <h4>ARMONI</h4>
           <ul>
-            <li><a href="/tecnologia/">Tecnología</a></li>
-            <li><a href="/investigacion/">Investigación</a></li>
-            <li><a href="/plataforma/">Plataforma (demo)</a></li>
-            <li><a href="/#hoja-de-ruta">Hoja de ruta</a></li>
+            <li><a href={u('/tecnologia/')}>Tecnología</a></li>
+            <li><a href={u('/investigacion/')}>Investigación</a></li>
+            <li><a href={u('/plataforma/')}>Plataforma (demo)</a></li>
+            <li><a href={u('/#hoja-de-ruta')}>Hoja de ruta</a></li>
           </ul>
         </div>
         <div>

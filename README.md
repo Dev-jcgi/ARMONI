@@ -23,7 +23,14 @@ npm run build    # sitio estático en dist/
 
 ## Publicación
 
-Pensado para Cloudflare Pages: comando de compilación `npm run build`, carpeta de salida `dist`, dominio `armoni.bio`.
+Cada cambio en `main` se compila y se publica solo en GitHub Pages, en **https://jcgi.lat/ARMONI/** (flujo `.github/workflows/deploy.yml`).
+
+La ruta se controla con dos variables de compilación:
+
+- `SITE_URL`: dominio del sitio (por defecto `https://armoni.bio`).
+- `BASE_PATH`: carpeta donde vive (por defecto `/`).
+
+Para usar el dominio **armoni.bio**, apunta su DNS a GitHub Pages, configura el dominio en *Settings → Pages* y cambia en el flujo `SITE_URL` a `https://armoni.bio` y `BASE_PATH` a `/`. En Cloudflare Pages basta con `npm run build` y la carpeta `dist`, sin variables.
 
 ## Tecnología
 

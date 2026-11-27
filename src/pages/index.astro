@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 const marquee = 'ATENCIÓN · COMPROMISO · CONTEXTO · AGENTES · DOCENTE AL MANDO · EEG PORTÁTIL · APRENDIZAJE PERSONALIZADO · ';
 ---
@@ -27,7 +28,7 @@ const marquee = 'ATENCIÓN · COMPROMISO · CONTEXTO · AGENTES · DOCENTE AL MA
       <div class="reveal">
         <p>Los sistemas de aprendizaje personalizado deciden con lo que el estudiante responde. No saben si una respuesta incorrecta viene de un concepto que no quedó claro o de una atención que ya se había ido.</p>
         <p>ARMONI añade esa información. Una diadema EEG de bajo costo registra la actividad cerebral durante la lección; la plataforma la convierte en indicadores comprensibles y un conjunto de agentes de IA decide el siguiente paso: una pista, un ejemplo resuelto, otro ritmo o una pausa.</p>
-        <a class="pill" href="/tecnologia/" style="margin-top:10px">Cómo funciona <span class="arr">→</span></a>
+        <a class="pill" href={u('/tecnologia/')} style="margin-top:10px">Cómo funciona <span class="arr">→</span></a>
       </div>
     </div>
   </section>
@@ -101,7 +102,7 @@ const marquee = 'ATENCIÓN · COMPROMISO · CONTEXTO · AGENTES · DOCENTE AL MA
 
   <section>
     <div class="wrap split" style="align-items:center">
-      <div class="media reveal" style="aspect-ratio:4/3"><img src="/img/diadema.webp" width="1400" height="1050" alt="Persona con una diadema EEG usando una tableta" loading="lazy" /></div>
+      <div class="media reveal" style="aspect-ratio:4/3"><img src={u('/img/diadema.webp')} width="1400" height="1050" alt="Persona con una diadema EEG usando una tableta" loading="lazy" /></div>
       <div class="reveal">
         <span class="eyebrow">Tecnología</span>
         <h2 style="margin:16px 0 22px">Funciona con la diadema que ya existe</h2>
@@ -146,10 +147,10 @@ const marquee = 'ATENCIÓN · COMPROMISO · CONTEXTO · AGENTES · DOCENTE AL MA
           <div class="stat reveal"><b data-count="0.96" data-decimals="2">0.00</b><span>exactitud del clasificador SVM sobre los índices propuestos</span></div>
           <div class="stat reveal"><b data-count="24" data-prefix="n = ">n = 0</b><span>participantes, grupo experimental y control</span></div>
         </div>
-        <figure class="reveal"><img src="/img/laboratorio.webp" width="1200" height="800" alt="Dos investigadoras trabajando en computadoras de laboratorio" loading="lazy" /><figcaption>Procesamiento abierto y reproducible</figcaption></figure>
-        <figure class="reveal"><img src="/img/aula.webp" width="1200" height="675" alt="Estudiantes atentos en un auditorio universitario" loading="lazy" /><figcaption>Mediciones en el contexto real del aula</figcaption></figure>
+        <figure class="reveal"><img src={u('/img/laboratorio.webp')} width="1200" height="800" alt="Dos investigadoras trabajando en computadoras de laboratorio" loading="lazy" /><figcaption>Procesamiento abierto y reproducible</figcaption></figure>
+        <figure class="reveal"><img src={u('/img/aula.webp')} width="1200" height="675" alt="Estudiantes atentos en un auditorio universitario" loading="lazy" /><figcaption>Mediciones en el contexto real del aula</figcaption></figure>
       </div>
-      <p class="note">Resultados preliminares. La exactitud del clasificador refleja la consistencia del esquema de etiquetado, no una validación independiente de la atención. <a href="/investigacion/" style="text-decoration:underline">Ver método y límites</a>.</p>
+      <p class="note">Resultados preliminares. La exactitud del clasificador refleja la consistencia del esquema de etiquetado, no una validación independiente de la atención. <a href={u('/investigacion/')} style="text-decoration:underline">Ver método y límites</a>.</p>
     </div>
   </section>
 
@@ -158,9 +159,9 @@ const marquee = 'ATENCIÓN · COMPROMISO · CONTEXTO · AGENTES · DOCENTE AL MA
       <span class="eyebrow">Para quién</span>
       <h2 style="margin-top:16px;max-width:15ch" class="reveal">Un mismo dato, tres formas de usarlo</h2>
       <div class="cards">
-        <a class="card reveal" href="/investigacion/"><div class="media"><img src="/img/investigadora.webp" width="1000" height="1250" alt="Investigadora trabajando frente a una computadora" loading="lazy" /></div><h3>Investigación</h3><p>Registro sincronizado, indicadores validados y datos exportables para estudios de atención y aprendizaje.</p><span class="more">Edición para laboratorios →</span></a>
-        <a class="card reveal" href="/plataforma/"><div class="media"><img src="/img/docente.webp" width="1200" height="675" alt="Profesor dando clase en un aula universitaria" loading="lazy" /></div><h3>Docencia</h3><p>Ver qué partes de la clase pierden al grupo y recibir sugerencias que el docente aprueba.</p><span class="more">Panel docente →</span></a>
-        <a class="card reveal" href="/tecnologia/#api"><div class="media"><img src="/img/diadema-ancha.webp" width="1400" height="933" alt="Persona con diadema EEG y tableta" loading="lazy" /></div><h3>Tecnología educativa</h3><p>Una API que agrega una señal de atención a tutores y plataformas de aprendizaje existentes.</p><span class="more">Integración por API →</span></a>
+        <a class="card reveal" href={u('/investigacion/')}><div class="media"><img src={u('/img/investigadora.webp')} width="1000" height="1250" alt="Investigadora trabajando frente a una computadora" loading="lazy" /></div><h3>Investigación</h3><p>Registro sincronizado, indicadores validados y datos exportables para estudios de atención y aprendizaje.</p><span class="more">Edición para laboratorios →</span></a>
+        <a class="card reveal" href={u('/plataforma/')}><div class="media"><img src={u('/img/docente.webp')} width="1200" height="675" alt="Profesor dando clase en un aula universitaria" loading="lazy" /></div><h3>Docencia</h3><p>Ver qué partes de la clase pierden al grupo y recibir sugerencias que el docente aprueba.</p><span class="more">Panel docente →</span></a>
+        <a class="card reveal" href={u('/tecnologia/#api')}><div class="media"><img src={u('/img/diadema-ancha.webp')} width="1400" height="933" alt="Persona con diadema EEG y tableta" loading="lazy" /></div><h3>Tecnología educativa</h3><p>Una API que agrega una señal de atención a tutores y plataformas de aprendizaje existentes.</p><span class="more">Integración por API →</span></a>
       </div>
     </div>
   </section>

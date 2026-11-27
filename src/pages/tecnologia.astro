@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import ArchDiagram from '../components/ArchDiagram.astro';
 ---
@@ -69,9 +70,9 @@ import ArchDiagram from '../components/ArchDiagram.astro';
           <div class="spec" style="grid-template-columns:1fr auto"><div><h3>Edición de investigación</h3><span>Software para laboratorios: registro sincronizado, indicadores con calidad y exportación de datos. Licencia anual por laboratorio.</span></div><span class="status wip">2027</span></div>
           <div class="spec" style="grid-template-columns:1fr auto"><div><h3>Plataforma de tutoría y API</h3><span>Tutor con agentes y panel docente para universidades; API de atención para empresas de tecnología educativa.</span></div><span class="status">Después</span></div>
         </div>
-        <a class="pill" href="/plataforma/" style="margin-top:28px">Probar la demo <span class="arr">→</span></a>
+        <a class="pill" href={u('/plataforma/')} style="margin-top:28px">Probar la demo <span class="arr">→</span></a>
       </div>
-      <div class="media" style="aspect-ratio:4/3"><img src="/img/diadema.webp" width="1400" height="1050" alt="Persona con diadema EEG usando una tableta" loading="lazy" /></div>
+      <div class="media" style="aspect-ratio:4/3"><img src={u('/img/diadema.webp')} width="1400" height="1050" alt="Persona con diadema EEG usando una tableta" loading="lazy" /></div>
     </div>
   </section>
 </Base>

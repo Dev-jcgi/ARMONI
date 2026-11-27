@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="'Inter Tight', 'Inter', system-ui, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111113"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2FA36B"/></marker>
+    <style>
+      .m{fill:#F4F4F1;stroke:#111113;stroke-width:1.2}
+      .s{fill:#FFFFFF;stroke:#C9C9C2;stroke-width:1}
+      .n{fill:#F1F8F4;stroke:#2FA36B;stroke-width:1.5}
+      .nd{fill:#2FA36B;stroke:#2FA36B;stroke-width:1}
+      .e{fill:#fff;stroke:#C9C9C2;stroke-width:1}
+      .w{fill:#111113} .k{fill:#55555B} .gk{fill:#1F7A4E}
+      .wn{fill:#fff}
+      .t{font-size:17px;font-weight:500} .b{font-size:14px} .sm{font-size:12.5px}
+      .ar{stroke:#111113;stroke-width:1.3;fill:none;marker-end:url(#a)}
+      .ag{stroke:#2FA36B;stroke-width:1.8;fill:none;marker-end:url(#g)}
+    </style>
+  </defs>
+
+  <!-- Interface -->
+  <rect class="m" x="300" y="16" width="600" height="62" rx="2"/>
+  <text class="w t" x="600" y="42" text-anchor="middle">Interfaz</text>
+  <text class="w sm" x="600" y="62" text-anchor="middle">App del estudiante (lecciones, tareas interactivas)  ·  Panel docente</text>
+
+  <!-- Expert module -->
+  <rect class="m" x="16" y="110" width="226" height="340"/>
+  <text class="w t" x="129" y="136" text-anchor="middle">Módulo experto</text>
+  <rect class="s" x="30" y="150" width="198" height="118"/>
+  <text class="w b" x="129" y="172" text-anchor="middle" font-weight="700">Análisis estratégico</text>
+  <text class="w sm" x="44" y="196">• Inferencia</text><text class="w sm" x="44" y="216">• Deducción</text><text class="w sm" x="44" y="236">• Adecuación de la tarea</text>
+  <rect class="s" x="30" y="280" width="198" height="54"/><text class="w b" x="129" y="303" text-anchor="middle" font-weight="700">Módulo de dominio</text><text class="w sm" x="129" y="322" text-anchor="middle">Física: cinemática</text>
+  <rect class="s" x="30" y="344" width="198" height="54"/><text class="w b" x="129" y="367" text-anchor="middle" font-weight="700">Módulo de dominio</text><text class="w sm" x="129" y="386" text-anchor="middle">Teoría de la computación</text>
+  <text class="w b" x="129" y="428" text-anchor="middle">⋮  más dominios</text>
+
+  <!-- Analysis manager -->
+  <rect class="m" x="270" y="110" width="140" height="340"/>
+  <text class="w t" x="340" y="136" text-anchor="middle">Gestor de</text><text class="w t" x="340" y="156" text-anchor="middle">análisis</text>
+  <text class="w sm" x="284" y="190">• Errores</text><text class="w sm" x="284" y="210">• Estrategia</text>
+  <rect class="nd" x="280" y="230" width="120" height="58" rx="4"/>
+  <text class="wn sm" x="340" y="252" text-anchor="middle" font-weight="700">+ Contexto</text><text class="wn sm" x="340" y="270" text-anchor="middle" font-weight="700">de atención</text>
+
+  <!-- Instruction model -->
+  <rect class="m" x="440" y="110" width="310" height="150"/>
+  <text class="w t" x="595" y="136" text-anchor="middle">Modelo de instrucción</text>
+  <ellipse class="e" cx="595" cy="174" rx="125" ry="20"/><text class="w b" x="595" y="179" text-anchor="middle">Modelo de actividades</text>
+  <ellipse class="e" cx="595" cy="226" rx="125" ry="20"/><text class="w b" x="595" y="231" text-anchor="middle">Taxonomía de errores</text>
+
+  <!-- Student model -->
+  <rect class="m" x="440" y="278" width="310" height="172"/>
+  <text class="w t" x="595" y="302" text-anchor="middle">Modelo del estudiante</text>
+  <ellipse class="e" cx="595" cy="330" rx="125" ry="15"/><text class="w sm" x="595" y="334" text-anchor="middle">Información personal</text>
+  <ellipse class="e" cx="595" cy="363" rx="125" ry="15"/><text class="w sm" x="595" y="367" text-anchor="middle">Preferencias de interacción</text>
+  <ellipse class="e" cx="595" cy="396" rx="125" ry="15"/><text class="w sm" x="595" y="400" text-anchor="middle">Conocimiento</text>
+  <ellipse class="nd" cx="595" cy="430" rx="138" ry="16"/><text class="wn sm" x="595" y="434" text-anchor="middle" font-weight="700">Patrones de atención y aprendizaje (EEG)</text>
+
+  <!-- Agentic feedback manager -->
+  <rect class="m" x="780" y="110" width="404" height="340"/>
+  <text class="w t" x="982" y="136" text-anchor="middle">Gestor de retroalimentación con agentes</text>
+  <rect class="s" x="796" y="152" width="372" height="46"/><text class="w b" x="982" y="172" text-anchor="middle" font-weight="700">Agente de análisis del estudiante</text><text class="w sm" x="982" y="190" text-anchor="middle">Lee conocimiento, errores y estado de atención</text>
+  <rect class="s" x="796" y="208" width="372" height="46"/><text class="w b" x="982" y="228" text-anchor="middle" font-weight="700">Agente planificador pedagógico</text><text class="w sm" x="982" y="246" text-anchor="middle">Elige pista, ritmo, dificultad, pausa o repaso</text>
+  <rect class="s" x="796" y="264" width="372" height="46"/><text class="w b" x="982" y="284" text-anchor="middle" font-weight="700">Generación de retroalimentación</text><text class="w sm" x="982" y="302" text-anchor="middle">Filtrado · priorización · mensaje (LLM)</text>
+  <rect class="nd" x="796" y="320" width="372" height="46"/><text class="wn b" x="982" y="340" text-anchor="middle" font-weight="700">Reglas y docente en el ciclo</text><text class="wn sm" x="982" y="358" text-anchor="middle">Límites, explicaciones, aprobación docente</text>
+  <text class="k sm" x="982" y="392" text-anchor="middle">Cada decisión se registra con los indicadores que la provocaron</text>
+  <text class="k sm" x="982" y="412" text-anchor="middle">(auditable y explicable al docente y al estudiante)</text>
+
+  <!-- Core arrows -->
+  <path class="ar" d="M360 78V108"/><text class="k sm" x="368" y="98">respuestas</text>
+  <path class="ar" d="M600 110V80"/>
+  <path class="ar" d="M860 108V80"/><text class="k sm" x="868" y="98">retroalimentación</text>
+  <path class="ar" d="M242 230H268"/><path class="ar" d="M270 330H244"/>
+  <path class="ar" d="M410 170H438"/><path class="ar" d="M438 215H412"/>
+  <path class="ar" d="M410 360H438"/><path class="ar" d="M438 405H412"/>
+  <path class="ar" d="M750 170H778"/><path class="ar" d="M778 220H752"/>
+  <path class="ar" d="M750 360H778"/><path class="ar" d="M778 405H752"/>
+
+  <!-- Neuro layer -->
+  <rect class="n" x="16" y="488" width="1168" height="214" rx="6"/>
+  <text class="gk t" x="32" y="514">Capa neuro de ARMONI (nueva)</text>
+  <text class="gk sm" x="330" y="514">EEG portátil convertido en indicadores que el tutor puede usar</text>
+
+  <g>
+    <rect class="nd" x="32" y="530" width="200" height="120" rx="4"/>
+    <text class="wn b" x="132" y="554" text-anchor="middle" font-weight="700">EEG portátil</text>
+    <text class="wn sm" x="132" y="578" text-anchor="middle">NeuroSky MindWave 2</text><text class="wn sm" x="132" y="596" text-anchor="middle">Muse 2 / S</text><text class="wn sm" x="132" y="614" text-anchor="middle">Emotiv EPOC X</text><text class="wn sm" x="132" y="636" text-anchor="middle">(fNIRS en investigación)</text>
+    <rect class="nd" x="262" y="530" width="200" height="120" rx="4"/>
+    <text class="wn b" x="362" y="554" text-anchor="middle" font-weight="700">Adquisición</text>
+    <text class="wn sm" x="362" y="578" text-anchor="middle">Adaptadores por dispositivo</text><text class="wn sm" x="362" y="596" text-anchor="middle">(BrainFlow / LSL)</text><text class="wn sm" x="362" y="614" text-anchor="middle">Marcas de evento de</text><text class="wn sm" x="362" y="632" text-anchor="middle">la lección</text>
+    <rect class="nd" x="492" y="530" width="200" height="120" rx="4"/>
+    <text class="wn b" x="592" y="554" text-anchor="middle" font-weight="700">Procesamiento</text>
+    <text class="wn sm" x="592" y="578" text-anchor="middle">Pasa-banda + muesca</text><text class="wn sm" x="592" y="596" text-anchor="middle">Rechazo de artefactos</text><text class="wn sm" x="592" y="614" text-anchor="middle">Potencias por banda (Welch)</text><text class="wn sm" x="592" y="632" text-anchor="middle">Medida de calidad</text>
+    <rect class="nd" x="722" y="530" width="200" height="120" rx="4"/>
+    <text class="wn b" x="822" y="554" text-anchor="middle" font-weight="700">Indicadores</text>
+    <text class="wn sm" x="822" y="578" text-anchor="middle">Compromiso (CEI)</text><text class="wn sm" x="822" y="596" text-anchor="middle">Índice PRI</text><text class="wn sm" x="822" y="614" text-anchor="middle">Nivel de atención (3)</text><text class="wn sm" x="822" y="632" text-anchor="middle">Confianza por ventana</text>
+    <rect class="nd" x="952" y="530" width="216" height="120" rx="4"/>
+    <text class="wn b" x="1060" y="554" text-anchor="middle" font-weight="700">Patrones de aprendizaje</text>
+    <text class="wn sm" x="1060" y="578" text-anchor="middle">Atención en la sesión</text><text class="wn sm" x="1060" y="596" text-anchor="middle">Perfil por concepto</text><text class="wn sm" x="1060" y="614" text-anchor="middle">Vínculo con errores y notas</text><text class="wn sm" x="1060" y="632" text-anchor="middle">Línea base individual</text>
+    <path class="ag" d="M232 590H260"/><path class="ag" d="M462 590H490"/><path class="ag" d="M692 590H720"/><path class="ag" d="M922 590H950"/>
+  </g>
+  <text class="gk sm" x="32" y="684">No es un dispositivo de diagnóstico. Los indicadores describen un estado durante una tarea, llevan una medida de calidad y siempre se combinan con el desempeño.</text>
+
+  <!-- Neuro → tutor -->
+  <path class="ag" d="M1060 530V470H660V448"/>
+  <text class="gk sm" x="890" y="484" font-weight="700">los patrones actualizan el modelo del estudiante</text>
+  <path class="ag" d="M822 530V500H360V290"/>
+  <text class="gk sm" x="370" y="470" font-weight="700">indicadores en tiempo real</text>
+</svg>

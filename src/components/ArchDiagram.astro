@@ -1,0 +1,21 @@
+---
+// Diagrama interactivo de arquitectura (JointJS). JointJS se descarga solo al acercarse a la sección.
+---
+<div class="arch-legend"><span><i class="lg-base"></i>Tutor inteligente base</span><span><i class="lg-new"></i>Nuevo en ARMONI</span><button class="pill light" id="arch-tour" type="button">Recorrer el flujo ▶</button></div>
+<div class="arch-wrap">
+  <div id="arch" class="arch-paper" role="img" aria-label="Diagrama interactivo de la arquitectura de ARMONI"></div>
+  <p class="arch-hint">← Desliza para ver todo el diagrama →</p>
+  <aside id="arch-panel" class="arch-panel" aria-live="polite" data-empty="true"><p class="mono">Selecciona un bloque</p></aside>
+</div>
+<p class="caption">Diagrama construido con JointJS, librería abierta para diagramas de software.</p>
+<script>
+  const host = document.getElementById('arch');
+  if (host) {
+    const io = new IntersectionObserver(async (e) => {
+      if (!e[0].isIntersecting) return; io.disconnect();
+      const { architecture } = await import('../scripts/arch');
+      architecture(host, document.getElementById('arch-panel'), document.getElementById('arch-tour') as HTMLButtonElement | null);
+    }, { rootMargin: '600px 0px' });
+    io.observe(host);
+  }
+</script>

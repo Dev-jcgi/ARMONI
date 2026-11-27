@@ -1,0 +1,78 @@
+---
+import { u } from '../lib/url';
+import Base from '../layouts/Base.astro';
+import ArchDiagram from '../components/ArchDiagram.astro';
+---
+<Base title="Tecnología — ARMONI" description="Cómo funciona ARMONI: capa neuro con EEG portátil, indicadores de atención interpretables y un gestor de retroalimentación con agentes sobre un sistema de tutoría inteligente." path="/tecnologia/" image="/img/diadema.webp">
+  <section class="page-head paper">
+    <div class="wrap">
+      <span class="eyebrow">Tecnología</span>
+      <h1>Una capa neuro para la tutoría inteligente</h1>
+      <p class="lead">ARMONI une tres piezas que hoy viven separadas: la medición con EEG portátil, los modelos del estudiante de los tutores inteligentes y los agentes de IA que generan retroalimentación.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="qa">
+        <div class="reveal"><h3>¿Qué mide ARMONI?</h3><div><p>La actividad eléctrica del cerebro en la frente y el cuero cabelludo, registrada con diademas EEG comerciales mientras la persona realiza una tarea de aprendizaje. En modo de investigación también admite fNIRS, que mide la oxigenación de la sangre en la corteza.</p><p>De esa señal no se extraen pensamientos ni emociones. Se estiman estados generales, como el compromiso con la tarea y el nivel de atención sostenida, en ventanas de pocos segundos.</p></div></div>
+        <div class="reveal"><h3>¿Por qué EEG portátil?</h3><div><p>Porque es lo único que hoy cabe en un salón de clases. Las diademas de bajo costo se colocan en segundos, no requieren gel y transmiten por Bluetooth. Su señal es más ruidosa que la de un equipo de laboratorio, por eso cada indicador de ARMONI viene acompañado de una medida de calidad y las ventanas de baja calidad se descartan.</p></div></div>
+        <div class="reveal"><h3>¿Cómo se convierte la señal en un indicador?</h3><div><p>La señal se filtra entre 1 y 40 Hz, se eliminan parpadeos y movimientos, y se calcula la potencia de cada banda de frecuencia con el método de Welch. Con esas potencias se construyen índices conocidos en la literatura, como el índice de compromiso cognitivo, y una escala de tres niveles fácil de leer.</p><p class="formula">CEI = β / (α + θ)</p></div></div>
+        <div class="reveal"><h3>¿Cómo decide el sistema qué hacer?</h3><div><p>Los indicadores actualizan el modelo del estudiante junto con su conocimiento y sus errores. Un gestor de retroalimentación con tres agentes lee ese modelo: uno analiza el estado, otro elige la acción pedagógica y otro redacta el mensaje. Una capa de reglas y el docente tienen la última palabra.</p></div></div>
+        <div class="reveal"><h3>¿Qué no hace ARMONI?</h3><div><p>No diagnostica autismo, TDAH ni ninguna otra condición. No califica a nadie por su señal cerebral ni la comparte con compañeros. No toma decisiones sensibles sin aprobación del docente.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper">
+    <div class="wrap">
+      <div class="split">
+        <div><span class="eyebrow">Arquitectura</span><h2 style="margin-top:16px">Sobre un tutor inteligente clásico</h2></div>
+        <p class="lead" style="margin-top:8px">Módulo experto, gestor de análisis, modelo de instrucción y modelo del estudiante se mantienen. ARMONI añade la capa neuro, el contexto de atención y el gestor de retroalimentación con agentes. Toca cualquier bloque para ver qué hace.</p>
+      </div>
+      <div style="margin-top:28px"><ArchDiagram /></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Capa neuro</span>
+      <h2 style="margin-top:16px;max-width:18ch">Cinco etapas, de la diadema al patrón de aprendizaje</h2>
+      <div class="road" style="grid-template-columns:repeat(5,1fr)">
+        <div class="reveal"><span class="when">01</span><h3>EEG portátil</h3><p>MindWave, Muse y Emotiv; fNIRS en investigación.</p></div>
+        <div class="reveal"><span class="when">02</span><h3>Adquisición</h3><p>Adaptadores por dispositivo y marcas de evento de la lección.</p></div>
+        <div class="reveal"><span class="when">03</span><h3>Procesamiento</h3><p>Filtros, rechazo de artefactos y potencias por banda.</p></div>
+        <div class="reveal"><span class="when">04</span><h3>Indicadores</h3><p>Compromiso, nivel de atención y confianza por ventana.</p></div>
+        <div class="reveal"><span class="when">05</span><h3>Patrones</h3><p>Atención por concepto, ligada a errores y resultados.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <span class="eyebrow">Gestor de retroalimentación</span>
+      <h2 style="margin-top:16px;max-width:16ch">Tres agentes y una regla: el docente decide</h2>
+      <div class="principles">
+        <div><span class="n">AGENTE 1</span><h3>Análisis del estudiante</h3><p>Lee conocimiento, errores recientes y estado de atención.</p></div>
+        <div><span class="n">AGENTE 2</span><h3>Planificador pedagógico</h3><p>Elige pista, ejemplo, ritmo, dificultad, repaso o pausa.</p></div>
+        <div><span class="n">AGENTE 3</span><h3>Generación de mensajes</h3><p>Filtra, prioriza y redacta la retroalimentación.</p></div>
+        <div><span class="n">CONTROL</span><h3>Reglas y docente</h3><p>Límites explícitos, aprobación de acciones sensibles y registro auditable.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="api">
+    <div class="wrap split" style="align-items:center">
+      <div>
+        <span class="eyebrow">Productos</span>
+        <h2 style="margin:16px 0 22px">Dos formas de usar ARMONI</h2>
+        <div class="specs">
+          <div class="spec" style="grid-template-columns:1fr auto"><div><h3>Edición de investigación</h3><span>Software para laboratorios: registro sincronizado, indicadores con calidad y exportación de datos. Licencia anual por laboratorio.</span></div><span class="status wip">2027</span></div>
+          <div class="spec" style="grid-template-columns:1fr auto"><div><h3>Plataforma de tutoría y API</h3><span>Tutor con agentes y panel docente para universidades; API de atención para empresas de tecnología educativa.</span></div><span class="status">Después</span></div>
+        </div>
+        <a class="pill" href={u('/plataforma/')} style="margin-top:28px">Probar la demo <span class="arr">→</span></a>
+      </div>
+      <div class="media" style="aspect-ratio:4/3"><img src={u('/img/diadema.webp')} width="1400" height="1050" alt="Persona con diadema EEG usando una tableta" loading="lazy" /></div>
+    </div>
+  </section>
+</Base>

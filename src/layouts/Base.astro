@@ -1,0 +1,89 @@
+---
+import { u } from '../lib/url';
+import '../styles/global.css';
+interface Props { title: string; description: string; path: string; image?: string }
+const { title, description, path, image = '/img/diadema.webp' } = Astro.props;
+const canonical = new URL(u(path), Astro.site).href;
+const links = [
+  { href: '/tecnologia/', label: 'Tecnología' },
+  { href: '/investigacion/', label: 'Investigación' },
+  { href: '/plataforma/', label: 'Plataforma' },
+  { href: '/#hoja-de-ruta', label: 'Hoja de ruta' },
+];
+const jsonld = { '@context': 'https://schema.org', '@type': 'Organization', name: 'ARMONI', url: 'https://armoni.bio', description, logo: 'https://armoni.bio/logo.svg' };
+---
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#06070A" />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ARMONI" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={new URL(u(image), Astro.site).href} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+</head>
+<body>
+  <canvas id="bg-lines" class="bg-lines" aria-hidden="true"></canvas>
+  <header class="nav">
+    <a class="brand" href={u('/')} aria-label="ARMONI, inicio"><img src={u('/logo.svg')} width="44" height="29" alt="" />ARMONI</a>
+    <nav class="links" aria-label="Principal">
+      {links.map((l) => <a href={u(l.href)} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>)}
+    </nav>
+    <a class="pill" href={u('/#colaborar')}>Colaborar <span class="arr">→</span></a>
+  </header>
+
+  <main><slot /></main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <a class="brand" href={u('/')}><img src={u('/logo.svg')} width="52" height="34" alt="" />ARMONI</a>
+          <p style="margin-top:18px;max-width:42ch">Neurotecnología para el aprendizaje. EEG portátil, indicadores interpretables y tutoría inteligente con el docente al mando.</p>
+          <form class="news" action="mailto:hola@armoni.bio" method="post" enctype="text/plain">
+            <input type="email" name="correo" placeholder="Tu correo para recibir avances" aria-label="Correo electrónico" required />
+            <button class="pill light" type="submit">Suscribirme</button>
+          </form>
+        </div>
+        <div>
+          <h4>ARMONI</h4>
+          <ul>
+            <li><a href={u('/tecnologia/')}>Tecnología</a></li>
+            <li><a href={u('/investigacion/')}>Investigación</a></li>
+            <li><a href={u('/plataforma/')}>Plataforma (demo)</a></li>
+            <li><a href={u('/#hoja-de-ruta')}>Hoja de ruta</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:hola@armoni.bio">hola@armoni.bio</a></li>
+            <li><a href="https://github.com/Dev-jcgi">GitHub</a></li>
+            <li><a href="https://orcid.org/0009-0006-4386-2964">ORCID del investigador</a></li>
+            <li><a href="https://jcgi.lat">jcgi.lat</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom">
+        <span>© 2026 ARMONI · San Luis Potosí, México</span>
+        <span>Herramienta de apoyo a la investigación y al aprendizaje. No es un dispositivo médico ni emite diagnósticos.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    import { reveal, neuralLines } from '../scripts/neural';
+    reveal();
+    const bg = document.getElementById('bg-lines') as HTMLCanvasElement | null;
+    if (bg) neuralLines(bg, { origin: { x: 0.0, y: 0.5 }, spread: 0.62, endX: 0.985, count: 10 });
+  </script>
+</body>
+</html>
